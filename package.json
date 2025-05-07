@@ -1,0 +1,23 @@
+{
+  "name": "barber_shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdelacruzzin/Barber_Shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdelacruzzin/Barber_Shop/issues"
+  },
+  "homepage": "https://github.com/cdelacruzzin/Barber_Shop#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

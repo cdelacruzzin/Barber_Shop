@@ -2,9 +2,6 @@ import React, { createContext, useContext } from "react";
 
 //useProducer is the custom hook that uses "useReducer" to manage state logic
 import { useProductReducer } from "./reducers";
-
-
-
 const StoreContext = createContext();
 /**createContext() is React's context API, which allows you to share VALUES down to child components without using props.
  * It is like a global variable, but for all components, instead of just the single file.

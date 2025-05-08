@@ -18,8 +18,9 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <Router>
+                <StoreProvider>
 
-
+                </StoreProvider>
             </Router>
         </ApolloProvider>
     )

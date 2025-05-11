@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 
 import {forwardRef, useState} from "react";
+import {IconButton} from "@mui/material";
 
 
 
@@ -11,9 +12,11 @@ import {forwardRef, useState} from "react";
 const HamburgerBtn = ({ onClick, children }) => {
     return (
         <Box>
-            <ToggleButton onClick={onClick}>
+            <IconButton onClick={onClick} button sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1.5, display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center' }}>
                 <MenuIcon />
-            </ToggleButton>
+            </IconButton>
             {children}
         </Box>
     );

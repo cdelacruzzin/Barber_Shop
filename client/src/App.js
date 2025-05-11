@@ -20,10 +20,10 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <Router>
-                {/*<StoreProvider>*/}
+                <StoreProvider>
                 <Navbar/>
 
-                {/*</StoreProvider>*/}
+                </StoreProvider>
             </Router>
         </ApolloProvider>
     )

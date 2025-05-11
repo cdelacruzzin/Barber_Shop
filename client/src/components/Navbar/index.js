@@ -1,10 +1,22 @@
 import React, { useState} from "react";
-import { link as RouterLink} from "react-router-dom";
+import { Link as RouterLink} from "react-router-dom";
 import { Box } from "@mui/system";
 import { Tabs, Tab, Link as MuiLink } from '@mui/material';
+import { useStoreContext } from "../../utils/globalState";
 
 
 const Navbar = () => {
+
+    const [value, setValue] = useState(0);  // Start with first tab
+    const [state, dispatch] = useStoreContext();
+
+    function resetCategory() {
+        dispatch({
+            type: UPDATE_CURRENT_CATEGORY,
+            currentCategory: {id:'', name:''}
+        })
+    }
+
     return (
         <header>
             <Box sx={{
@@ -12,28 +24,23 @@ const Navbar = () => {
                 justifyContent: 'space-between',
                 p: 1,
                 m: 1,
-                bgcolor: 'background.paper',
+                backgroundColor: 'background.paper', // ✅ use this to avoid warnings
                 borderRadius: 1,
             }}>
 
 
-                {/*<MuiLink*/}
-                {/*    component={RouterLink}*/}
-                {/*    to='/'*/}
-                {/*    underline='none'*/}
-                {/*    onClick={resetCategory}*/}
-                {/*>*/}
-                {/*    <span className="logo"></span>*/}
-                {/*    URBAN SK8*/}
-                {/*</MuiLink>*/}
+                <MuiLink
+                    component={RouterLink}
+                    to='/'
+                    underline='none'
+                    onClick={resetCategory}
+                >
+                    <span className="logo"></span>
+                    URBAN SK8
+                </MuiLink>
 
 
-                {/*<Tabs centered value={value} onChange={(e, newValue) => setValue(newValue)}>*/}
-                {/*    <Tab label="page One" />*/}
-                {/*    <Tab label="page Two" />*/}
-                {/*    <Tab label="page Three" />*/}
-                {/*</Tabs>*/}
-                <Tabs centered>
+                <Tabs centered value={value} onChange={(e, newValue) => setValue(newValue)}>
                     <Tab label="page One" />
                     <Tab label="page Two" />
                     <Tab label="page Three" />

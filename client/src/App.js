@@ -6,6 +6,8 @@ import { setContext } from '@apollo/client/link/context';     //utility from apo
 
 import { StoreProvider } from './utils/globalState';
 
+import Navbar from './components/Navbar';
+
 const httpLink = createHttpLink({
     uri: '/graphql',     // the uri specifies the graphql server's endpoint - in this case, "/graphql". when a "mutation" or "query" occurs, the request will be sent to '/graphql
 });
@@ -18,9 +20,10 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <Router>
-                <StoreProvider>
+                {/*<StoreProvider>*/}
+                <Navbar/>
 
-                </StoreProvider>
+                {/*</StoreProvider>*/}
             </Router>
         </ApolloProvider>
     )

@@ -3,11 +3,15 @@ import { Link as RouterLink} from "react-router-dom";
 import { Box } from "@mui/system";
 import { Tabs, Tab, Link as MuiLink } from '@mui/material';
 import { useStoreContext } from "../../utils/globalState";
+import {UPDATE_CURRENT_CATEGORY} from '../../utils/actions';
+import HamburgerBtn from "../HamburgerBtn";
 
 
 const Navbar = () => {
 
     const [value, setValue] = useState(0);  // Start with first tab
+    const [open, setOpen] = useState(false);
+
     const [state, dispatch] = useStoreContext();
 
     function resetCategory() {
@@ -17,6 +21,10 @@ const Navbar = () => {
         })
     }
 
+    const handleToggle = (state) => () => {
+        setOpen(state);
+    };
+
     return (
         <header>
             <Box sx={{
@@ -24,41 +32,11 @@ const Navbar = () => {
                 justifyContent: 'space-between',
                 p: 1,
                 m: 1,
-                backgroundColor: 'background.paper', // ✅ use this to avoid warnings
+                bgcolor: 'background.paper',
                 borderRadius: 1,
             }}>
+                <HamburgerBtn></HamburgerBtn>
 
-
-                <MuiLink
-                    component={RouterLink}
-                    to='/'
-                    underline='none'
-                    onClick={resetCategory}
-                >
-                    <span className="logo"></span>
-                    URBAN SK8
-                </MuiLink>
-
-
-                <Tabs centered value={value} onChange={(e, newValue) => setValue(newValue)}>
-                    <Tab label="page One" />
-                    <Tab label="page Two" />
-                    <Tab label="page Three" />
-                </Tabs>
-
-                {/*<button onClick={Auth.logout}>logout</button>*/}
-                <button>logout</button>
-
-
-                <button>
-                    <a href='/login' className='button-style'>login</a>
-
-                </button>
-
-
-                <div>
-                    profile
-                </div>
 
             </Box>
         </header >

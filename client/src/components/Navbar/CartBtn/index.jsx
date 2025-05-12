@@ -1,6 +1,4 @@
 import * as React from 'react';
-import ToggleButton from '@mui/material/ToggleButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 
 import {forwardRef, useState} from "react";
@@ -9,20 +7,19 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 
 
 
-const HamburgerBtn = ({ onClick, children }) => {
+const Index = ({ onClick, children }) => {
     return (
         <Box>
             <IconButton onClick={onClick} button sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1.5, display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-            color: "white"
-            }}>
-                <MenuIcon/>
+                justifyContent: 'center' }}>
+                <ShoppingBagOutlinedIcon sx={{color: "white"}} />
             </IconButton>
             {children}
         </Box>
     );
 };
-export default HamburgerBtn;
+
+export default Index;
 
 

@@ -52,9 +52,7 @@ const Navbar = () => {
                 sx={{
                 width: 400,
                 display: 'flex',
-                justifyContent: 'space-between',
-
-                    border: '1px solid', borderColor: 'divider', borderRadius: 1.5
+                justifyContent: 'space-between'
             }}>
                 <CartMenu onClick={handleClose} onKeyDown={handleClose} />
             </Box>

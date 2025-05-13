@@ -63,9 +63,9 @@ const Navbar = () => {
 
 
     return (
-        <Box sx={{ backgroundColor: 'black', display: 'flex', flexDirection: 'column' }}>
-            <Box sx={{display: 'grid', placeItems: 'center', p: 0 ,borderRadius: 1 }}>
-                <ListItemButton component={Link} to={"/"} sx={{color:'white', p:0}}>
+        <Box sx={{ backgroundColor: 'black', display: 'flex', flexDirection: 'column', position:'sticky', top: '0', width: '100%', zIndex: 1}}>
+            <Box sx={{display: 'grid', placeItems: 'center', px: 2 ,borderRadius: 1, py:1 }}>
+                <ListItemButton component={Link} to={"/collections/all"} sx={{color:'white', p:0}}>
                     <ListItemText primary = "pre-order your favourite items! Free shipping for orders over $150"   />
                 </ListItemButton>
             </Box>
@@ -84,7 +84,12 @@ const Navbar = () => {
                     </Drawer>
                 </HamburgerBtn>
 
-                <img src={logo} alt={logo} />
+
+
+                <Box component={Link} to={"/"}>
+                    <img src={logo} alt={logo} />
+                </Box>
+
 
                 <CartBtn anchor="right" onClick={toggleDrawer("right", true)}>
                     <Drawer

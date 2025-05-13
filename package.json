@@ -19,5 +19,8 @@
   "homepage": "https://github.com/cdelacruzzin/Barber_Shop#readme",
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "motion": "^12.11.0"
   }
 }

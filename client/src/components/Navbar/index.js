@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { Box } from "@mui/system";
+import {Box, maxWidth} from "@mui/system";
 import { useStoreContext } from "../../utils/globalState";
 import {UPDATE_CURRENT_CATEGORY} from '../../utils/actions';
 import HamburgerBtn from "./HamburgerBtn";
@@ -12,7 +12,7 @@ import CartMenu from "./CartMenu";
 import Drawer from '@mui/material/Drawer';
 import Menu from "./HamburgerMenu";
 import {Button, ListItemButton, ListItemText,} from "@mui/material";
-
+import logo from "../../assets/logo.png";
 
 
 const Navbar = () => {
@@ -63,19 +63,19 @@ const Navbar = () => {
 
 
     return (
-        <Box sx={{ backgroundColor: 'grey' }}>
-            <Box sx={{display: 'grid', placeItems: 'center', p: 1 ,borderRadius: 1, }}>
-                <ListItemButton component={Link} to={"/"} sx={{color:'white'}}>
+        <Box sx={{ backgroundColor: 'black', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{display: 'grid', placeItems: 'center', p: 0 ,borderRadius: 1 }}>
+                <ListItemButton component={Link} to={"/"} sx={{color:'white', p:0}}>
                     <ListItemText primary = "pre-order your favourite items! Free shipping for orders over $150"   />
                 </ListItemButton>
             </Box>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
+                alignItems: 'center',
                 p: 1,
-                borderRadius: 1
             }}>
-                <HamburgerBtn  anchor="left" onClick={toggleDrawer("left", true)}>
+                <HamburgerBtn anchor="left" onClick={toggleDrawer("left", true)}>
                     <Drawer
                         anchor={"left"}
                         open={state["left"]}
@@ -84,6 +84,7 @@ const Navbar = () => {
                     </Drawer>
                 </HamburgerBtn>
 
+                <img src={logo} alt={logo} />
 
                 <CartBtn anchor="right" onClick={toggleDrawer("right", true)}>
                     <Drawer

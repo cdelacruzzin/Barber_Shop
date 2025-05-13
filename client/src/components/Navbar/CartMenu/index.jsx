@@ -1,28 +1,18 @@
 import * as React from 'react';
 import {
-    ListItemIcon,
-    ListSubheader,
     List,
     ListItem,
-    IconButton,
-    ListItemButton,
-    ListItemText,
-    ImageListItem, TextField, Button
+    IconButton, TextField, Button
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Divider from '@mui/material/Divider';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import {Container} from "@mui/system";
 
 import keychainImage from "../../../assets/anime.png";
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-
-//shop.phase-connect.com/cdn/shop/files/anime.png?v=1744741173"
 
 const CartMenu = ({ onClick, onKeyDown }) => {
     return (

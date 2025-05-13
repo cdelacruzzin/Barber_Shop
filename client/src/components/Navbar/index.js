@@ -53,8 +53,8 @@ const Navbar = () => {
                 width: 400,
                 display: 'flex',
                 justifyContent: 'space-between',
-                p: 1,
-                borderRadius: 1,
+
+                    border: '1px solid', borderColor: 'divider', borderRadius: 1.5
             }}>
                 <CartMenu onClick={handleClose} onKeyDown={handleClose} />
             </Box>

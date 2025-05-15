@@ -14,25 +14,27 @@ export default function Home() {
     const images = require.context('../assets/featured');
     const imageUrls = images.keys().map(images);
 
-    console.log(imageUrls);
+
     const [imageIndex, setImageIndex] = useState(0);
+    const [timer, setTimer] = useState(0);
 
     useEffect(() => {
-        let index = 0;
+        let index = timer;
         const interval = setInterval(() => {
-            setImageIndex((index + 1) % imageUrls.length);
+            index =  (index + 1) % imageUrls.length;
+            setImageIndex(index);
         }, 5000);
         return () => clearInterval(interval); // ✅ Cleanup on unmount
-    }, []);
+    }, [timer,  imageUrls.length]);
 
     const handleChange = (event) => {
-        // setImageIndex(Number(event.target.value));
+        setImageIndex(Number(event.target.value));
+        setTimer(Number(event.target.value));
     };
-
     const controlProps = (item, index) => ({
-        // checked: imageIndex === index,
-        // onChange: handleChange,
-        // value: index,
+        checked: imageIndex === index,
+        onChange: handleChange,
+        value: index,
     })
 
 

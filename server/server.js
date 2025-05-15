@@ -1,6 +1,9 @@
+
+
 const express = require('express');
 const app = express();
 const path = require('path'); //imports the path module, which is a node.js module to work with directories and files
+
 
 app.use(express.urlencoded({ extended: true }));
 /*
@@ -38,3 +41,5 @@ app.get('/', (req, res) => { ///defines a router for the "/" endpoint
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+
+

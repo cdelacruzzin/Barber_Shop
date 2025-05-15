@@ -5,18 +5,16 @@ type Product {
     description: String
     details: String
     collection: Collection
-    merchType: [Filters!]
+    filters: [Filters!]
     imageSource: String
     quantity: Int
 }
-
 input ProductData {
     name: String!
     price: Float!
     imageSource: String!
     description: String!
 }
-
 type Collection {
     _id: ID,
     name: String,
@@ -35,5 +33,27 @@ type Filters {
 # clients can execute, along with the return type for each. In this
 # case, the "books" query returns an array of zero or more Books (defined above).
 type Query {
-books: [Product]
+    allProducts: [Product]
+    productById(id: ID!): Product
+    collections: [Collection]
+    filters: [Filters]
+}
+
+query GetAllProducts {
+    allProducts {
+        _id
+        name
+        price
+        imageSource
+        description
+        details
+        quantity
+        collection {
+            _id
+            name
+        }
+        filters {
+            name
+        }
+    }
 }

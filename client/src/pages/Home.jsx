@@ -14,6 +14,7 @@ export default function Home() {
     const images = require.context('../assets/featured');
     const imageUrls = images.keys().map(images);
 
+    console.log(imageUrls);
     const [imageIndex, setImageIndex] = useState(0);
 
     useEffect(() => {
@@ -24,17 +25,17 @@ export default function Home() {
         return () => clearInterval(interval); // ✅ Cleanup on unmount
     }, []);
 
-
     const handleChange = (event) => {
-        setImageIndex(Number(event.target.value));
+        // setImageIndex(Number(event.target.value));
     };
 
-    const controlProps = (index) => ({
-        checked: imageIndex === index,
-        onChange: handleChange,
-        value: index,
-
+    const controlProps = (item, index) => ({
+        // checked: imageIndex === index,
+        // onChange: handleChange,
+        // value: index,
     })
+
+
 
     return (
         <Box className="slideshow-container">
@@ -50,38 +51,34 @@ export default function Home() {
                     />
                 <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'absolute', zIndex: 1, border: '2px solid black', width: '100%', height: '84vh', overflow: 'hidden'}}>
                     <Box sx={{color:'white', p:0, border:'1px solid red', display: 'flex', flexDirection: 'column', height:'100%', alignItems:'center', justifyContent:'center'}}>
-                        <Box sx={{border:'1px solid yellow'}}>
-                            <Typography variant="h6" sx={{color:'white', p:1, border: '2px solid black'}}>
+                        <Box sx={{border:'1px solid yellow', display:'flex', flexDirection: 'column', alignItems:'center', justifyContent:'center'}}>
+                            <Typography variant="h6" sx={{color:'white', p:1, border: '2px solid black', textAlign:'center'}}>
                                 pre-order your favourite items! Free
                             </Typography >
-                            <Typography variant="h5" sx={{color:'white', p:1, display: 'flex', justifyContent: 'center', border: '2px solid black'}}>
+                            <Typography variant="h5" sx={{color:'white', p:1, border: '2px solid black'}}>
                                 pre-order your favourite items! Free shipping for orders over $150
                             </Typography >
+                            <Button component={Link} to={"/"} sx={{color:'black', p:1, border: '2px solid black', backgroundColor: 'transparent', position: "relative",
+                                backgroundImage: `linear-gradient(to left, white 50%, rgba(0,0,0,0)  50%)`,  backgroundSize: "200% 100%",  backgroundPosition: "right",  transition: "background-position 0.5s ease",  '&:hover': {  backgroundPosition: "left",  color: 'white',  borderColor: 'white',  }, }}  >
+                                shop the collection
+                            </Button>
+
                         </Box>
 
                     </Box>
                     <Box sx={{border:'5px solid white', alignSelf:'flex-end'}}>
-                        <ul style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            listStyle: 'none',
-                            width: '100%',
-                            padding: 0,
-                            margin: '0 5vw',
-                             gap: 5
-                        }}>
-                            {imageUrls.map((item, index) => (
+                        <ul style={{   display: 'flex',  flexDirection: 'row',   listStyle: 'none',  width: '100%',   padding: 0,   margin: '0 5vw',    gap: 5  }}>
+                            {imageUrls.map((item, imageIndex) => (
                                     <Radio sx={{color:'white','& .MuiSvgIcon-root': {
                                             fontSize: 30, // 👈 Increases the size of the radio circle
                                         },
                                         '&.Mui-checked': {
                                             color: 'white', // Optional: color when selected
-                                        },}}{...controlProps(index)}/>
+                                        },}}{...controlProps(item, imageIndex)}/>
                             ))}
                         </ul>
                     </Box>
                 </Box>
-
             </Box>
             <Box sx={{display: 'flex', justifyContent:'center', border:'5px solid white'}}>
                 <IconButton ><KeyboardArrowDownIcon sx={{backgroundColor: 'white', fontSize: 50,   borderRadius: 10, border: '1px solid', position:'absolute'}}/></IconButton>

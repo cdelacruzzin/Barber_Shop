@@ -1,12 +1,39 @@
-
-type Book {
-title: String
-author: String
+type Product {
+    _id: ID,
+    name: String
+    price: Float
+    description: String
+    details: String
+    collection: Collection
+    merchType: [Filters!]
+    imageSource: String
+    quantity: Int
 }
+
+input ProductData {
+    name: String!
+    price: Float!
+    imageSource: String!
+    description: String!
+}
+
+type Collection {
+    _id: ID,
+    name: String,
+    products: [Product]
+}
+type Filters {
+    _id: ID,
+    name: String,
+    products: [Product]
+}
+
+
+
 
 # The "Query" type is special: it lists all of the available queries that
 # clients can execute, along with the return type for each. In this
 # case, the "books" query returns an array of zero or more Books (defined above).
 type Query {
-books: [Book]
+books: [Product]
 }

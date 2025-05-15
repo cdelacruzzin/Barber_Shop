@@ -7,7 +7,7 @@ const productData = [
             'Grind: Whole Bean\n' +
             'Packaging: Pouch with character-themed label',
         collection: [],
-        merchType: [],
+        Filters: [],
         imageSource: "https://shop.phase-connect.com/cdn/shop/files/QuestCoffeeClio_700x.png?v=1746297363"
     },
     {
@@ -18,7 +18,7 @@ const productData = [
             'Grind: Whole Bean\n' +
             'Packaging: Pouch with character-themed label',
         collection: [],
-        merchType: [],
+        Filters: [],
         imageSource: "https://shop.phase-connect.com/cdn/shop/files/QuestCoffeeClio_700x.png?v=1746297363"
     },
     {
@@ -29,7 +29,7 @@ const productData = [
             'Grind: Whole Bean\n' +
             'Packaging: Pouch with character-themed label',
         collection: [],
-        merchType: [],
+        Filters: [],
         imageSource: "https://shop.phase-connect.com/cdn/shop/files/QuestCoffeeClio_700x.png?v=1746297363"
     },
 ];

@@ -16,8 +16,18 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const CartMenu = ({ onClick, onKeyDown }) => {
     return (
-        <Box sx={{ width: '100%'}}>
-            <List sx={{ p: { xs: 1, sm: 2, md: 0 }}}>
+        <Box
+            sx={{
+                maxWidthwidth: {
+                    xs: '100%',   // very narrow on phones
+                    sm: '20vw',  // wider on tablets
+                    md: '300px', // fixed on desktops
+                },
+            backgroundColor:'yellow'
+            }}
+        >
+
+    <List sx={{backgroundColor:'yellow', paddingX: { xs: '0', sm: '150vw', md: 0 }}}>
 
                 {/* Header Row */}
                 <ListItem sx={{border: '1px solid', borderColor: 'divider', borderRadius: 1.5}} secondaryAction={

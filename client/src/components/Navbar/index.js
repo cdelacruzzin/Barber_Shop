@@ -38,6 +38,7 @@ const Navbar = () => {
                     justifyContent: 'space-between',
                     p: 1,
                     borderRadius: 1,
+                    backgroundColor:'yellow'
                 }}
             >
                 <Menu onClick={handleClose} onKeyDown={handleClose} />
@@ -50,9 +51,10 @@ const Navbar = () => {
         return (
             <Box
                 sx={{
-                width: 400,
+                width: '400',
                 display: 'flex',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                    backgroundColor:'yellow'
             }}>
                 <CartMenu onClick={handleClose} onKeyDown={handleClose} />
             </Box>

@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <Box className="slideshow-container">
-            <Box   sx={{ position: 'relative',  width: '100%', height: '84vh', overflow: 'hidden', border: '1px solid', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
+            <Box   sx={{ position: 'relative',  width: '100%', height: '83vh', overflow: 'hidden', border: '1px solid', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
                     <img
                         src={imageUrls[imageIndex]}
                         alt="slideshow"
@@ -71,7 +71,12 @@ export default function Home() {
                              gap: 5
                         }}>
                             {imageUrls.map((item, index) => (
-                                    <Radio {...controlProps(index)}/>
+                                    <Radio sx={{color:'white','& .MuiSvgIcon-root': {
+                                            fontSize: 30, // 👈 Increases the size of the radio circle
+                                        },
+                                        '&.Mui-checked': {
+                                            color: 'white', // Optional: color when selected
+                                        },}}{...controlProps(index)}/>
                             ))}
                         </ul>
                     </Box>

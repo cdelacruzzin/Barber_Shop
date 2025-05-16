@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-/**
- * connects to a MongoDB database.
- * uses the MONGODB_URI env variable, which contains the connection string to a MongoDB from a cloud service, if it is set.
- * if not, use the local instance at 'mongodb://127.0.0.1:27017/ClotheStation'
- */
-mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost:27017'
-);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/BarberShop');
 
-module.exports = mongoose;
+mongoose.connection.on('connected', () => {
+    console.log('✅ MongoDB connected successfully');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('❌ MongoDB connection error:', err);
+});
+
+export default mongoose.connection;
+

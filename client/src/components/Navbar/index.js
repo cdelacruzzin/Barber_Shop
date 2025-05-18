@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import {Box, maxWidth} from "@mui/system";
+import {Box, maxWidth, padding} from "@mui/system";
 import { useStoreContext } from "../../utils/globalState";
 import {UPDATE_CURRENT_CATEGORY} from '../../utils/actions';
 import HamburgerBtn from "./HamburgerBtn";
@@ -61,38 +61,41 @@ const Navbar = () => {
 
         )
     }
-
-
-
     return (
-        <Box sx={{ backgroundColor: 'black', display: 'flex', flexDirection: 'column', position:'sticky', top: '0', width: '100%', zIndex: 1}}>
-            <Box sx={{display: 'grid', placeItems: 'center', px: 2 ,borderRadius: 1, py:1 }}>
-                <ListItemButton component={Link} to={"/collections/all"} sx={{color:'white', p:0}}>
-                    <ListItemText primary = "pre-order your favourite items! Free shipping for orders over $150"   />
-                </ListItemButton>
+        <>
+
+            <Box
+                sx={{  backgroundColor: 'black',  width: '100%', display: 'grid',  placeItems: 'center',  px: 2, color:'white', py: 1 }} >
+                <a>
+                    pre-order your favourite items! Free shipping for orders over $150
+                </a>
+                {/*<ListItemButton component={Link} to="/collections/all">*/}
+                {/*    <ListItemText*/}
+                {/*        primary="pre-order your favourite items! Free shipping for orders over $150"*/}
+                {/*        sx={{ color: 'white', p: 0 }}*/}
+                {/*    />*/}
+                {/*</ListItemButton>*/}
             </Box>
-            <Box sx={{
+
+
+            <Box sx={{    position: 'sticky',
+                top: 0,
+                zIndex: 2,
+                backgroundColor: 'black',
+                height: '8vh',
                 display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-                p: 1,
+                justifyContent: 'space-between',
+                px: 0,
             }}>
                 <HamburgerBtn anchor="left" onClick={toggleDrawer("left", true)}>
-                    <Drawer
-                        anchor={"left"}
-                        open={state["left"]}
-                        onClose={toggleDrawer("left", false)}>
+                    <Drawer  anchor={"left"}  open={state["left"]} onClose={toggleDrawer("left", false)}>
                         {menu("left")}
                     </Drawer>
                 </HamburgerBtn>
-
-
-
                 <Box component={Link} to={"/"}>
                     <img src={logo} alt={logo} />
                 </Box>
-
-
                 <CartBtn anchor="right" onClick={toggleDrawer("right", true)}>
                     <Drawer
                         anchor={"right"}
@@ -102,7 +105,7 @@ const Navbar = () => {
                     </Drawer>
                 </CartBtn>
             </Box>
-        </Box>
+        </>
     )
 }
 export default Navbar;

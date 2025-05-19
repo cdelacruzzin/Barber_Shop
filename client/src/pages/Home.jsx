@@ -6,15 +6,18 @@ import {Button, IconButton, ListItem, ListItemButton, ListItemText, Typography} 
 import {Box, Container} from "@mui/system";
 import { useEffect, useState } from "react";
 import Radio from '@mui/material/Radio';
+import FeaturedCollection from "../components/FeaturedCollections/FeaturedCollection";
+import { useRef } from "react";
 
 
 export default function Home() {
-    const images = require.context('../assets/featured');
+    const images = require.context('../assets/featured/collection/slideshow');
     const imageUrls = images.keys().map(images);
 
 
     const [imageIndex, setImageIndex] = useState(0);
     const [timer, setTimer] = useState(0);
+
 
     useEffect(() => {
         let index = timer;
@@ -35,11 +38,17 @@ export default function Home() {
         value: index,
     })
 
+    const featuredRef = useRef(null);
+    const handleScroll = () => {
+        featuredRef.current.scrollIntoView({
+            behavior: 'smooth',
+        })
+    }
 
 
     return (
-            <Box className="slideshow-container" sx={{width: '100%', height: '83vh',}}>
-                <Box   sx={{ position: 'relative',  width: '100%', height: '83vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
+        <>
+                <Box   sx={{ position: 'relative',  width: '100%', height: '82vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
 
                     {/*EACH PHOTO WILL HAVE ITS OWN FOCUS POINT ON SMALLER SIZES*/}
                     <Box
@@ -48,7 +57,7 @@ export default function Home() {
                         alt="slideshow"
                         sx={{
                             width: '100%',
-                            height: '83vh',
+                            // height: '83vh',
                             objectFit: 'cover',
                             objectPosition: {
                                 xs: 'left top',     // focus top on phones
@@ -58,10 +67,6 @@ export default function Home() {
                         }}
                         className="featured-img"
                     />
-
-
-
-
                     <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'absolute', zIndex: 1, width: '100%', height: '84vh', overflow: 'hidden'}}>
                         <Box sx={{color:'white', p:0, display: 'flex', flexDirection: 'column', height:'100%', alignItems:'center', justifyContent:'center'}}>
                             <Box sx={{ display:'flex', flexDirection: 'column', alignItems:'center', justifyContent:'center'}}>
@@ -79,10 +84,10 @@ export default function Home() {
                         </Box>
 
                         <Box sx={{ alignSelf:'flex-end'}}>
-                            <ul style={{   display: 'flex',  flexDirection: 'row',   listStyle: 'none',  width: '100%',   padding: '0 0 10%',   margin: '0 5vw',    gap: 5  }}>
+                            <ul style={{   display: 'flex',  flexDirection: 'row',   listStyle: 'none',  width: '100%',   padding: '0 0 10%',   margin: '0 5vw',    gap: 0  }}>
                                 {imageUrls.map((item, imageIndex) => (
                                     <Radio sx={{color:'white','& .MuiSvgIcon-root': {
-                                            fontSize: 30, // 👈 Increases the size of the radio circle
+                                            fontSize: 20, // 👈 Increases the size of the radio circle
                                         },
                                         '&.Mui-checked': {
                                             color: 'white', // Optional: color when selected
@@ -93,9 +98,12 @@ export default function Home() {
                     </Box>
                 </Box>
                 <Box sx={{display: 'flex', justifyContent:'center', }}>
-                    <IconButton ><KeyboardArrowDownIcon sx={{backgroundColor: 'white', fontSize: 50,   borderRadius: 10, border: '1px solid', position:'absolute'}}/></IconButton>
+                    <IconButton  ><KeyboardArrowDownIcon onClick={handleScroll} sx={{backgroundColor: 'white', fontSize: 50,   borderRadius: 10, border: '1px solid', position:'absolute'}}/></IconButton>
                 </Box>
+            <Box ref={featuredRef} >
+                <FeaturedCollection />
             </Box>
 
+        </>
     );
 }

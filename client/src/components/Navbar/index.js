@@ -65,10 +65,10 @@ const Navbar = () => {
         <>
 
             <Box
-                sx={{  backgroundColor: 'black',  width: '100%', display: 'grid',  placeItems: 'center',  px: 2, color:'white', py: 1 }} >
-                <a>
+                sx={{  backgroundColor: 'black', display: 'grid',  placeItems: 'center',  px: 2, color:'white', py: 1 }} >
+                <Link to={"/all-products"} style ={{textDecoration:'none', color: 'inherit'}}>
                     pre-order your favourite items! Free shipping for orders over $150
-                </a>
+                </Link>
                 {/*<ListItemButton component={Link} to="/collections/all">*/}
                 {/*    <ListItemText*/}
                 {/*        primary="pre-order your favourite items! Free shipping for orders over $150"*/}

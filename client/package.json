@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "flickity": "^3.0.0",
     "graphql": "^16.11.0",
     "motion": "^12.11.3",
     "react": "^19.1.0",

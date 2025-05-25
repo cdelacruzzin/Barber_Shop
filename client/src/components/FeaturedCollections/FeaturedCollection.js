@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {Box} from "@mui/system";
 import Flickity from 'flickity';
 import carousel from '../../styles/FeaturedCollections.css'
+import {Tab, Tabs} from '@mui/material';
 
 
 export default function FeaturedCollection(props) {
@@ -13,7 +14,12 @@ export default function FeaturedCollection(props) {
         <div style={{}}>
             <section id='section'>
                 <header style={{height:'10vh', backgroundColor: 'white'}}>
-                    header
+                    <h4> Featured Collection</h4>
+                    <Tabs>
+                        <Tab></Tab>
+                        <Tab></Tab>
+
+                    </Tabs>
                 </header>
                 <div role={"tab panel"}>
                     <div className={"ProductListWrapper"}>

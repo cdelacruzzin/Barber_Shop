@@ -13,8 +13,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const HamburgerBtn = ({ onClick, children }) => {
     return (
-        <Box>
-            <IconButton onClick={onClick} button sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1.5, display: 'flex',  alignItems: 'center', justifyContent: 'center',
+        <Box sx={{ p: 1 }}>
+            <IconButton onClick={onClick} button sx={{ scale: 1.5, border: '1px solid', borderColor: 'divider', borderRadius: 1.5, display: 'flex',  alignItems: 'center', justifyContent: 'center',
             color: "white"
             }}>
                 <MenuIcon/>

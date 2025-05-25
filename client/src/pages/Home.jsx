@@ -55,11 +55,7 @@ export default function Home() {
                         component="img"
                         src={imageUrls[imageIndex]}
                         alt="slideshow"
-                        sx={{
-                            width: '100%',
-                            // height: '83vh',
-                            objectFit: 'cover',
-                            objectPosition: {
+                        sx={{ width: '100%',  objectFit: 'cover', objectPosition: {
                                 xs: 'left top',     // focus top on phones
                                 sm: 'right top',     // focus top on small tablets
                                 md: 'center center',  // default center focus on larger screens
@@ -76,7 +72,7 @@ export default function Home() {
                                 <Typography variant="h5" sx={{color:'white', paddingX:'10%', }}>
                                     pre-order your favourite items! Free shipping for orders over $150
                                 </Typography >
-                                <Button component={Link} to={"/"} sx={{color:'black', p:1, border: '2px solid black', backgroundColor: 'transparent', position: "relative",
+                                <Button component={Link} to={"/"} sx={{color:'black', p:1, border: '2px solid rgba(0,0,0,0)', backgroundColor: 'transparent', position: "relative", borderRadius: 0,
                                     backgroundImage: `linear-gradient(to left, white 50%, rgba(0,0,0,0)  50%)`,  backgroundSize: "200% 100%",  backgroundPosition: "right",  transition: "background-position 0.5s ease",  '&:hover': {  backgroundPosition: "left",  color: 'white',  borderColor: 'white',  }, }}  >
                                     shop the collection
                                 </Button>
@@ -84,7 +80,7 @@ export default function Home() {
                         </Box>
 
                         <Box sx={{ alignSelf:'flex-end'}}>
-                            <ul style={{   display: 'flex',  flexDirection: 'row',   listStyle: 'none',  width: '100%',   padding: '0 0 10%',   margin: '0 5vw',    gap: 0  }}>
+                            <ul style={{   display: 'flex',  flexDirection: 'row',   listStyle: 'none',  width: '100%',   padding: '0 0 10%',   margin: '0 2vw',    gap: 0  }}>
                                 {imageUrls.map((item, imageIndex) => (
                                     <Radio sx={{color:'white','& .MuiSvgIcon-root': {
                                             fontSize: 20, // 👈 Increases the size of the radio circle

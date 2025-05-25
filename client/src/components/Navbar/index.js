@@ -32,15 +32,7 @@ const Navbar = () => {
         const handleClose = toggleDrawer(anchor, false);
         return (
             <Box
-                sx={{
-                    width: 400 ,
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    p: 1,
-                    borderRadius: 1,
-                    backgroundColor:'yellow'
-                }}
-            >
+                sx={{width: '18vw', display: 'flex'}} >
                 <Menu onClick={handleClose} onKeyDown={handleClose} />
             </Box>
         );
@@ -69,25 +61,10 @@ const Navbar = () => {
                 <Link to={"/all-products"} style ={{textDecoration:'none', color: 'inherit'}}>
                     pre-order your favourite items! Free shipping for orders over $150
                 </Link>
-                {/*<ListItemButton component={Link} to="/collections/all">*/}
-                {/*    <ListItemText*/}
-                {/*        primary="pre-order your favourite items! Free shipping for orders over $150"*/}
-                {/*        sx={{ color: 'white', p: 0 }}*/}
-                {/*    />*/}
-                {/*</ListItemButton>*/}
             </Box>
 
 
-            <Box sx={{    position: 'sticky',
-                top: 0,
-                zIndex: 2,
-                backgroundColor: 'black',
-                height: '8vh',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                px: 0,
-            }}>
+            <Box sx={{ position: 'sticky',   top: 0,  zIndex: 2,  backgroundColor: 'black',  height: '8vh', display: 'flex',  alignItems: 'center', justifyContent: 'space-between', px: 0  }}>
                 <HamburgerBtn anchor="left" onClick={toggleDrawer("left", true)}>
                     <Drawer  anchor={"left"}  open={state["left"]} onClose={toggleDrawer("left", false)}>
                         {menu("left")}

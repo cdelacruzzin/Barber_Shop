@@ -11,6 +11,53 @@ html, body, #root {
     text-transform: uppercase;
 }
 
+.Heading {
+    color: black;
+    transition: color 0.2s ease-in-out;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.U-h1 {
+    font-size: 22px;
+}
+
+.TabList {
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.TabList__Item {
+    position: relative;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    padding-bottom: 6px;
+    cursor: pointer;
+    color: #111;
+}
+
+.TabList__Item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background-color: black;
+    transition: width 0.25s ease-in-out;
+}
+
+.TabList__Item.is-active::after {
+    width: 100%;
+}
+
 @keyframes fadeInOut {
     0%   { opacity: 0; }
     10%  { opacity: 1; }

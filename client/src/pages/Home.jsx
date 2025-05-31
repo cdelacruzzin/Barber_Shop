@@ -48,14 +48,14 @@ export default function Home() {
 
     return (
         <>
-                <Box   sx={{ position: 'relative',  width: '100%', height: '82vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
+                <Box   sx={{ position: 'relative',  width: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} draggable={false}  onMouseDown={e => e.currentTarget.style.cursor = 'grabbing'} onMouseUp={e => e.currentTarget.style.cursor = 'grab'}>
 
                     {/*EACH PHOTO WILL HAVE ITS OWN FOCUS POINT ON SMALLER SIZES*/}
                     <Box
                         component="img"
                         src={imageUrls[imageIndex]}
                         alt="slideshow"
-                        sx={{ width: '100%',  objectFit: 'cover', objectPosition: {
+                        sx={{ height: '80vh', width: '100%',  objectFit: 'cover', objectPosition: {
                                 xs: 'left top',     // focus top on phones
                                 sm: 'right top',     // focus top on small tablets
                                 md: 'center center',  // default center focus on larger screens
@@ -63,7 +63,7 @@ export default function Home() {
                         }}
                         className="featured-img"
                     />
-                    <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'absolute', zIndex: 1, width: '100%', height: '84vh', overflow: 'hidden'}}>
+                    <Box sx={{display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'absolute', zIndex: 1, width: '100%', height: '80vh', overflow: 'hidden'}}>
                         <Box sx={{color:'white', p:0, display: 'flex', flexDirection: 'column', height:'100%', alignItems:'center', justifyContent:'center'}}>
                             <Box sx={{ display:'flex', flexDirection: 'column', alignItems:'center', justifyContent:'center'}}>
                                 <Typography variant="h6" sx={{color:'white', paddingX:'10%', textAlign:'center'}}>

@@ -3,56 +3,65 @@ import {Link} from 'react-router-dom';
 import {Box} from "@mui/system";
 import Flickity from 'flickity';
 import carousel from '../../styles/FeaturedCollections.css'
-import {Tab, Tabs, Typography} from '@mui/material';
+import {Button, Tab, Tabs, Typography} from '@mui/material';
 
+
+const tabs = [
+    {
+        label: 'Phase Connect - Custom Roast Coffee',
+        id: 'block-3756859a-1f88-466a-8bc1-e03fbd131e65',
+    },
+    {
+        label: 'Alternative Outfit Standee',
+        id: 'block-5b147a49-395f-4fbb-8c76-d13bab04552b',
+    },
+];
 
 export default function FeaturedCollection(props) {
-    // const coffeeProduct = require.context('../assets/featured/collection/coffee');
-    // const coffeeProductURLs = coffeeProduct.keys().map(coffeeProduct);
 
-    const [value, setValue] = useState(0);
+    const [activeTab, setActiveTab] = useState(tabs[0]);
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-        console.log(value);
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+        console.log(tab);
     };
 
     return (
-        <div style={{}}>
-            <section id='section'>
-                <header style={{height:'100%', display:'flex',flexDirection:'column', justifyContent:'center', marginTop: 4, backgroundColor:'white' }}>
-                    <h5 style ={{paddingTop: '2%', textAlign:'center'}}> Featured Collection</h5>
-                    {/*<Tabs value={activeTab} onchange={changeTab}>*/}
-                    {/*    <Tab label={"coffee"}/>*/}
-                    {/*    <Tab label={"standee"}/>*/}
-                    {/*</Tabs>*/}
-                    <Box sx={{ width: '100%', backgroundColor: 'yellow', display:'flex', flexDirection:'column', justifyContent:'center', alignItems: 'center' }}>
-                        {/*<div style={{backgroundColor:'red', height:'100%',display:'flex', justifyContent:'center', alignItems: 'center'}}>*/}
-                        {/*    <Typography sx={{px:5}}>Custom Roast Coffee</Typography>*/}
-                        {/*    <Typography sx={{px:5}}>Custom Roast Coffee</Typography>*/}
-                        {/*</div>*/}
-                        <Tabs root={{}} value={value} onChange={handleChange} centered>
-                            <Tab label="Custom Roeast Coffee" />
-                            <Tab label="alternative outfit standee" />
-                        </Tabs>
-                    </Box>
-
-
-
+        <>
+            <section id="section">
+                <header style={{ textAlign: 'center', paddingTop: '5%', paddingBottom: '5%' }}>
+                    <h5>Featured Collection</h5>
+                    <div className="SectionHeader__TabList TabList" role="tablist">
+                        {tabs.map((tab) => (
+                            <button
+                                key={tab.id}
+                                className={`Heading U-h1 TabList__Item ${tab === activeTab ? 'is-active' : ''}`}
+                                data-action="toggle-tab"
+                                role="tab"
+                                aria-selected={tab === activeTab}
+                                aria-controls={tab}
+                                onClick={() => handleTabClick(tab)}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+                    </div>
                 </header>
-                <div role={"tab panel"}>
-                    <div className={"ProductListWrapper"}>
-                        <div className={"ProductList carousel flickity-enabled is-draggable"}>
-                            <div className="carousel-cell">1</div>
-                            <div className="carousel-cell">2</div>
-                            <div className="carousel-cell">3</div>
-                            <div className="carousel-cell">4</div>
-                            <div className="carousel-cell">5</div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'auto' }}>
+                    <div className= "ProductListWrapper"></div>
+                    <div className= "Container">
+                        <div className="SectionFooter" style={{ display: 'flex', justifyContent: 'center' }}>
+                            <a href={`'collections/${activeTab.label}`}>
+                                <Button sx={{color:'white', p:1, border: '2px solid rgba(0,0,0,0)', backgroundColor: 'transparent', position: "relative", borderRadius: 0,
+                                    backgroundImage: `linear-gradient(to left, black 50%, rgba(0,0,0,0)  50%)`,  backgroundSize: "200% 100%",  backgroundPosition: "right",  transition: "background-position 0.5s ease",  '&:hover': {  backgroundPosition: "left",  color: 'black',  borderColor: 'black',  }, }}>view all products</Button>
+                            </a>
+
                         </div>
                     </div>
-                    <div className={"Container"}></div>
                 </div>
             </section>
-        </div>
+            );
+        </>
+
     );
 }

@@ -13,26 +13,17 @@ import keychainImage from "../../../assets/anime.png";
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloseIcon from '@mui/icons-material/Close';
 
 const CartMenu = ({ onClick, onKeyDown }) => {
     return (
-        <Box
-            sx={{
-                maxWidthwidth: {
-                    xs: '100%',   // very narrow on phones
-                    sm: '20vw',  // wider on tablets
-                    md: '300px', // fixed on desktops
-                },
-            backgroundColor:'yellow'
-            }}
-        >
-
-    <List sx={{backgroundColor:'yellow', paddingX: { xs: '0', sm: '150vw', md: 0 }}}>
+        <>
+            <List sx={{ paddingX: { xs: '0', sm: '150vw', md: 0 }}}>
 
                 {/* Header Row */}
-                <ListItem sx={{border: '1px solid', borderColor: 'divider', borderRadius: 1.5}} secondaryAction={
-                        <IconButton onClick={onClick} onKeyDown={onKeyDown} sx={{ border: '1px solid',  borderColor: 'divider', borderRadius: 1.5, }} >
-                            <CancelOutlinedIcon />
+                <ListItem secondaryAction={
+                        <IconButton onClick={onClick} onKeyDown={onKeyDown} >
+                            <CloseIcon sx={{scale:'1.25' , m:1}} />
                         </IconButton>
                     }
                 >
@@ -77,7 +68,7 @@ const CartMenu = ({ onClick, onKeyDown }) => {
 
 
             </List>
-        </Box>
+        </>
 
 
     );

@@ -4,7 +4,9 @@ import {Box} from "@mui/system";
 import Flickity from 'flickity';
 import carousel from '../../styles/FeaturedCollections.css'
 import {Button, Tab, Tabs, Typography} from '@mui/material';
+import products from "../../assets/featured/collection/coffee";
 
+console.log(products.valueOf());
 
 const tabs = [
     {
@@ -48,7 +50,16 @@ export default function FeaturedCollection(props) {
                     </div>
                 </header>
                 <div style={{ display: 'grid', gridTemplateColumns: 'auto' }}>
-                    <div className= "ProductListWrapper"></div>
+                    <div className= "ProductListWrapper">
+                        {Object.entries(products).map(([key, value]) => (
+                            <div key={key}>
+                                <img src={value} alt="product" />
+                            </div>
+                            ))}
+                    </div>
+
+
+
                     <div className= "Container">
                         <div className="SectionFooter" style={{ display: 'flex', justifyContent: 'center' }}>
                             <a href={`'collections/${activeTab.label}`}>

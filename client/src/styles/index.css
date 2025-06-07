@@ -65,3 +65,13 @@ html, body, #root {
     40%  { opacity: 0; }
     100% { opacity: 0; }
 }
+.ProductListWrapper {
+    overflow: hidden; }
+.ProductList--carousel .Carousel__Cell {
+    width: 62%;
+    padding: 0 12px;
+    vertical-align: top; }
+.Carousel {
+    position: relative; }
+.Carousel:not(.flickity-enabled) .Carousel__Cell:not(.is-selected) {
+    display: none; }

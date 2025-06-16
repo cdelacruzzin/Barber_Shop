@@ -27,12 +27,12 @@ export default function FeaturedCollection(props) {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        // console.log(tab);
+
     };
 
     const [index, setIndex] = useState(0);
     const totalProducts = Object.entries(products).length;
-console.log(totalProducts);
+
 
     return (
         <>
@@ -55,18 +55,12 @@ console.log(totalProducts);
                         ))}
                     </div>
                 </header>
-                <div style={{ display: 'grid', gridTemplateColumns: 'auto' }}>
-                    <div className= "ProductListWrapper">
-                        {/*{Object.entries(products).map(([key, value]) => (*/}
-                        {/*    <div key={key}>*/}
-                        {/*        <img src={value} alt="product" />*/}
-                        {/*    </div>*/}
-                        {/*    ))}*/}
-                    </div>
+                <div style={{gridTemplateColumns: 'auto'}}>
 
 
+                    <MultiCarousel products={products} activeTab={activeTab} />
 
-                    <div className= "Container">
+                    <div className= "Container" style={{paddingTop: '5%', paddingBottom: '5%'}} >
                         <div className="SectionFooter" style={{ display: 'flex', justifyContent: 'center' }}>
                             <a href={`'collections/${activeTab.label}`}>
                                 <Button sx={{color:'white', p:1, border: '2px solid rgba(0,0,0,0)', backgroundColor: 'transparent', position: "relative", borderRadius: 0,
@@ -74,7 +68,7 @@ console.log(totalProducts);
                             </a>
                         </div>
 
-                        <MultiCarousel products={products} activeTab={activeTab} />
+
 
 
                     </div>

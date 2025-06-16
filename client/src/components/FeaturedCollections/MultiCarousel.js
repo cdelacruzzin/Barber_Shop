@@ -4,6 +4,9 @@ import {Button, Paper} from "@mui/material";
 import {useMediaQuery} from '@mui/material';
 import {useTheme} from '@mui/material/styles';
 
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export default function MultiCarousel({products}) {
     const entries = Object.entries(products || {});
@@ -30,19 +33,18 @@ export default function MultiCarousel({products}) {
     return (
         <Box display="flex" justifyContent="space-between" alignItems="center" width="100%">
             {!isMobile ? (
-                // Desktop carousel layout
                 <>
                     <Box flexGrow={1}>
                         <Button onClick={prev} disabled={startIndex === 0}>
-                            <Paper>Item 1</Paper>
+                            <ArrowBackIosNewIcon style={{backgroundColor: theme.palette.background.paper, borderRadius: 20, fontSize: 40, border: '1px solid'}}/>
                         </Button>
                     </Box>
 
                     <Box display="flex" overflow="hidden" mx="auto" width="100%">
                         <Box
                             display="flex"
-                            transition="transform 0.5s ease"
                             sx={{
+                                transition: 'transform .5s ease-in-out',
                                 transform: `translateX(-${startIndex * (100 / itemsPerSlide)}%)`,
                                 width: `${(100 / itemsPerSlide) * total}%`
                             }}
@@ -61,9 +63,9 @@ export default function MultiCarousel({products}) {
                         </Box>
                     </Box>
 
-                    <Box flexGrow={1}>
-                        <Button onClick={next} disabled={startIndex + itemsPerSlide >= total}>
-                            <Paper>Item 1</Paper>
+                    <Box flexGrow={1} >
+                        <Button onClick={next} disabled={startIndex + itemsPerSlide >= total} >
+                            <ArrowForwardIosIcon style={{backgroundColor: theme.palette.background.paper, borderRadius: 20, fontSize: 40, border: '1px solid'}}/>
                         </Button>
                     </Box>
                 </>

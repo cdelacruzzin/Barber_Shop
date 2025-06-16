@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {Box} from "@mui/system";
-import Flickity from 'flickity';
-import carousel from '../../styles/FeaturedCollections.css'
-import {Button, Grid, Paper, Tab, Tabs, Typography} from '@mui/material';
+import {Button} from '@mui/material';
 import products from "../../assets/featured/collection/coffee";
-import { Swiper, SwiperSlide} from "swiper/react";
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 import MultiCarousel from "./MultiCarousel";
 
@@ -29,10 +23,6 @@ export default function FeaturedCollection(props) {
         setActiveTab(tab);
 
     };
-
-    const [index, setIndex] = useState(0);
-    const totalProducts = Object.entries(products).length;
-
 
     return (
         <>
@@ -57,7 +47,6 @@ export default function FeaturedCollection(props) {
                 </header>
                 <div style={{gridTemplateColumns: 'auto'}}>
 
-
                     <MultiCarousel products={products} activeTab={activeTab} />
 
                     <div className= "Container" style={{paddingTop: '5%', paddingBottom: '5%'}} >
@@ -67,9 +56,6 @@ export default function FeaturedCollection(props) {
                                     backgroundImage: `linear-gradient(to left, black 50%, rgba(0,0,0,0)  50%)`,  backgroundSize: "200% 100%",  backgroundPosition: "right",  transition: "background-position 0.5s ease",  '&:hover': {  backgroundPosition: "left",  color: 'black',  borderColor: 'black',  }, }}>view all products</Button>
                             </a>
                         </div>
-
-
-
 
                     </div>
                 </div>
